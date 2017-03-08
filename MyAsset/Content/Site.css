@@ -1,2 +1,21 @@
-﻿body {
+﻿#Wrapper
+{
+    max-width:1200px;
+    margin:auto auto;
+
+}
+#MyHeader 
+{
+    margin-top:60px;
+}
+.assetList-table
+{
+    text-align:center;
+}
+
+.assetList-table th
+{
+     text-align:center;
+     color:#0C5C7E;
+     background-color:#9ACBE0;
 }
