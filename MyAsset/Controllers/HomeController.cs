@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using MyAsset.Models.Services;
 using MvcPaging;  //Web.Config 已經有加上了<add namespace="MvcPaging" />，不知為何還要using? 
+using MyAsset.Repositories;
 //using PagedList;
 
 
@@ -19,7 +20,11 @@ namespace MyAsset.Controllers
 
         public HomeController()
         {
-            _assetSvc = new AssetService();
+           
+            var unitOfWork = new EFUnitOfWork();
+            _assetSvc = new AssetService(unitOfWork);
+
+
         }
 
         // GET: Home
@@ -32,7 +37,7 @@ namespace MyAsset.Controllers
         [ChildActionOnly]
         public ActionResult AssetList(int? page)
         {           
-            var assetRecords = _assetSvc.GetAll();
+            var assetRecords = _assetSvc.Lookup();
             //使用MVCPaging套件
             //Demo:http://demo.taiga.nl/mvcpaging/
             //除了MVCPaging 還有另一套分頁套件:PagedList ，兩者用法很像
