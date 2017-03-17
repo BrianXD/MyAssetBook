@@ -13,23 +13,26 @@ namespace MyAsset
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }  //id 改為page，for 分頁
-            //);
-
+            //for 分頁Route
+            //當url為: /Home/Index/1 (數字) 時才會套用
             routes.MapRoute(
-               name: "Paging1",
+               name: "Paging",
                url: "{controller}/{action}/{page}",
-               defaults: new { controller = "Home", action = "Index", page = UrlParameter.Optional }  //id 改為page，for 分頁
+               defaults: new
+               {
+                   controller = "Home",
+                   action = "Index",
+                   page = UrlParameter.Optional
+               },  //for 分頁
+               constraints: new { controller = "Home", action = "index", page = @"(\d)" }
            );
 
-           // routes.MapRoute(
-           //    name: "Paging2",
-           //    url: "Home/{page}",
-           //    defaults: new { controller = "Home", action = "Index", page = UrlParameter.Optional }  //id 改為page，for 分頁
-           //);
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }  //id 改為page，for 分頁
+            );
         }
     }
 }

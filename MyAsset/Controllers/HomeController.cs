@@ -7,7 +7,6 @@ using System.Web.Mvc;
 using MyAsset.Models.Services;
 using MvcPaging;  //Web.Config 已經有加上了<add namespace="MvcPaging" />，不知為何還要using? 
 using MyAsset.Repositories;
-//using PagedList;
 
 
 namespace MyAsset.Controllers
@@ -19,18 +18,14 @@ namespace MyAsset.Controllers
 
 
         public HomeController()
-        {
-           
+        {           
             var unitOfWork = new EFUnitOfWork();
             _assetSvc = new AssetService(unitOfWork);
-
-
         }
 
         // GET: Home
         public ActionResult Index(int? page)
-        {
-            
+        {            
             ViewBag.Title = "記帳本首頁";
             return View();
         }
@@ -39,8 +34,8 @@ namespace MyAsset.Controllers
         {           
             var assetRecords = _assetSvc.Lookup();
             //使用MVCPaging套件
-            //Demo:http://demo.taiga.nl/mvcpaging/
-            //除了MVCPaging 還有另一套分頁套件:PagedList ，兩者用法很像
+            //http://demo.taiga.nl/mvcpaging/
+            //另一套分頁套件:PagedList，和MVCPaging用法類似
             //GitHub:https://github.com/TroyGoode/PagedList
 
             // 計算出目前要顯示第幾頁的資料 ( 因為 page 為 Nullable<int> 型別 )
