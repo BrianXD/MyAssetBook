@@ -10,7 +10,7 @@ namespace MyAsset.Models.ViewModels
     {
        
         [Display(Name = "AssetID")]
-        public String AssetID { get; set; }
+        public int AssetID { get; set; }
         [Display(Name = "類別")]
         public string Category { get; set; }
         [Display(Name = "日期")]

@@ -18,20 +18,20 @@ namespace MyAsset.Models.Services
             _assetRep = new Repository<AccountBook>(unitOfWork);
         }    
        
-        public List<AssetViewModel> Lookup()
+        public IQueryable<AssetViewModel> Lookup()
         {
 
             var source = _assetRep.LookupAll();
             var result = source.Select(d =>
               new AssetViewModel()
               {
-                  AssetID = d.Id.ToString(),
+                  //AssetID = d.Id.ToString(),  //Guid 無法轉 int
                   Category = (d.Categoryyy == 0) ? "支出" : "收入",
                   CreatedDate = d.Dateee,
                   Money = d.Amounttt,
                   Remark = d.Remarkkk
-              }).ToList();
-            return result;
+              });
+            return result.OrderByDescending(d => d.CreatedDate).ThenByDescending(d => d.Category);
         }
 
     }

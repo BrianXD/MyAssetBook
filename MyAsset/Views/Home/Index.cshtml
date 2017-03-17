@@ -37,24 +37,9 @@
         </div>
     </form>
 </div>
-@Html.Action("AssetList","Home") 
+@Html.Action("AssetList") 
 
 
 @section scripts {
-    <script type="text/javascript">     
-        $.each($('.assetList-table tr td.remark'), function (key, testName) {
-            var curText = $(testName).text();
-            //使用html title屬性，滑鼠hover至上方會顯示全文
-            $(this).attr('title', curText);
-            var lengthToShortenTo = 50;  //限制顯示50個字元
-            if (curText.length > lengthToShortenTo) {
-                $(this).text(curText.substring(0, lengthToShortenTo) + '... ');
-            }
-        });
-        //$('[data-toggle="tooltip"]').tooltip();  //(optional)使用bootstrap Tooltip
-
-
-    
-
-    </script>
+        <script src="~/Scripts/Site.js"></script>
 }

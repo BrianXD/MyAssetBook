@@ -29,6 +29,11 @@ namespace MyAsset.Controllers
             ViewBag.Title = "記帳本首頁";
             return View();
         }
+        public ActionResult Edit()
+        {
+            ViewBag.Title = "記帳本首頁-編輯";
+            return View();
+        }
         [ChildActionOnly]
         public ActionResult AssetList(int? page)
         {           

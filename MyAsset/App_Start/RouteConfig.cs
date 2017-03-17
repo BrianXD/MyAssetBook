@@ -24,7 +24,7 @@ namespace MyAsset
                    action = "Index",
                    page = UrlParameter.Optional
                },  //for 分頁
-               constraints: new { controller = "Home", action = "index", page = @"(\d)" }
+               constraints: new { controller = "Home", action = "index", page = @"(\d*)" }
            );
 
 
