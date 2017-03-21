@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using MyAsset.Models.Services;
 using MvcPaging;  //Web.Config 已經有加上了<add namespace="MvcPaging" />，不知為何還要using? 
 using MyAsset.Repositories;
-
+using MyAsset.Models.ViewModels;
 
 namespace MyAsset.Controllers
 {
@@ -21,19 +21,39 @@ namespace MyAsset.Controllers
         {           
             var unitOfWork = new EFUnitOfWork();
             _assetSvc = new AssetService(unitOfWork);
+
+          
         }
 
         // GET: Home
         public ActionResult Index(int? page)
         {            
             ViewBag.Title = "記帳本首頁";
-            return View();
+            
+            //EnumDropDownListFor：預設選取「選擇一個類別」選項 (value = 2)
+            //#但因此要回傳model...
+            //#而且實質型別要改變為Nullable<T>，否則VIEW欄位會顯示實質型別預設值
+            //#可能有更好的做法         
+            AssetViewModel myModel = new AssetViewModel();
+            myModel.Categories = MyEnumCategory.選擇一個類別;
+            return View(myModel);
         }
-        public ActionResult Edit()
+        [HttpPost]
+        public ActionResult Index(AssetViewModel data)
         {
-            ViewBag.Title = "記帳本首頁-編輯";
-            return View();
+            if (ModelState.IsValid)
+            {           
+                return View();
+            }
+            return View(data);
+                 
         }
+        public ActionResult ValidDate(DateTime? createdDate)
+        {
+            bool isValidate = (createdDate <= DateTime.Now);
+            return Json(isValidate, JsonRequestBehavior.AllowGet);
+        }
+
         [ChildActionOnly]
         public ActionResult AssetList(int? page)
         {           

@@ -39,7 +39,7 @@
             <tr>
                 <td>@(++i)</td>
                 <td>@item.Category</td>
-                <td>@item.CreatedDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.CreatedDate.Value.ToString("yyyy-MM-dd")</td>
                 <td class="bg-success text-right">@String.Format("{0:#,###}", @item.Money)</td>
                 <td title="@item.Remark" class="remark">@(item.Remark.Length > 80 ? item.Remark.Substring(0, 79) + "..." : item.Remark)</td>
             </tr>

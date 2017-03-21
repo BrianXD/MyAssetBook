@@ -25,7 +25,8 @@ namespace MyAsset.Models.Services
             var result = source.Select(d =>
               new AssetViewModel()
               {
-                  //AssetID = d.Id.ToString(),  //Guid 無法轉 int
+                  //AssetID = d.Id.ToString(),  //Guid 無法轉 int                  
+                  AssetGUID = d.Id,                  
                   Category = (d.Categoryyy == 0) ? "支出" : "收入",
                   CreatedDate = d.Dateee,
                   Money = d.Amounttt,
