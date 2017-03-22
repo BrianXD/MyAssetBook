@@ -9,6 +9,7 @@ using MvcPaging;  //Web.Config 已經有加上了<add namespace="MvcPaging" />�
 using MyAsset.Repositories;
 using MyAsset.Models.ViewModels;
 
+
 namespace MyAsset.Controllers
 {
     public class HomeController : Controller
@@ -18,14 +19,14 @@ namespace MyAsset.Controllers
 
 
         public HomeController()
-        {           
+        {
             var unitOfWork = new EFUnitOfWork();
             _assetSvc = new AssetService(unitOfWork);
-         
+
         }
 
         // GET: Home
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page = 1)
         {            
             ViewBag.Title = "記帳本首頁";
             

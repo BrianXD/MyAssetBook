@@ -1,5 +1,6 @@
 ﻿@model MyAsset.Models.ViewModels.AssetViewModel
-
+@using MyAsset.Helper
+<p>@Html.Raw(Html.MyShowControllerAndActionName())</p>
 @using (Html.BeginForm())
 {
     <div class="well">

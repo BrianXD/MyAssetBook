@@ -144,3 +144,15 @@ input[type="checkbox"].input-validation-error {
     text-decoration: none;
 
 }
+
+.redfont
+{
+  color: #880015;
+  font-weight:bold;
+}
+
+.bluefont
+{
+  color:#104D67;
+  font-weight:bold;
+}
