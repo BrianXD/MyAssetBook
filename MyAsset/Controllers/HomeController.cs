@@ -21,8 +21,7 @@ namespace MyAsset.Controllers
         {           
             var unitOfWork = new EFUnitOfWork();
             _assetSvc = new AssetService(unitOfWork);
-
-          
+         
         }
 
         // GET: Home
@@ -48,11 +47,7 @@ namespace MyAsset.Controllers
             return View(data);
                  
         }
-        public ActionResult ValidDate(DateTime? createdDate)
-        {
-            bool isValidate = (createdDate <= DateTime.Now);
-            return Json(isValidate, JsonRequestBehavior.AllowGet);
-        }
+       
 
         [ChildActionOnly]
         public ActionResult AssetList(int? page)

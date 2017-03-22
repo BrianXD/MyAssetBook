@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using MyAsset.Filters;
 namespace MyAsset.Models.ViewModels
 {
     public class AssetViewModel
@@ -30,7 +30,11 @@ namespace MyAsset.Models.ViewModels
 
         [Display(Name = "日期")]
         [Required]
-        [Remote("ValidDate", "Home", ErrorMessage = "日期不可大於今日")]     
+        //MVC內建remote驗證，1.javascript關掉就無法work 2.如果有使用area且驗證controller放在root下會找不到
+        //[Remote("ValidDate", "Home", ErrorMessage = "日期不可大於今日")]
+        //Demo提供的客製remote可以解決以上問題
+        [RemoteDoublePlus("ValidDate", "Valid", "", ErrorMessage = "日期不可大於今日")]
+
         public DateTime? CreatedDate  { get; set; }
 
         [Display(Name = "金額")]        
