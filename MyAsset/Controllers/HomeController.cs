@@ -41,7 +41,9 @@ namespace MyAsset.Controllers
         public ActionResult Index(AssetViewModel data)
         {
             if (ModelState.IsValid)
-            {           
+            {
+                _assetSvc.Add(data);
+                _assetSvc.Save();
                 return View();
             }
             return View(data);

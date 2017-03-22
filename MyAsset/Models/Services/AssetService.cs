@@ -34,6 +34,28 @@ namespace MyAsset.Models.Services
               });
             return result.OrderByDescending(d => d.CreatedDate).ThenByDescending(d => d.Category);
         }
+        public void Add(AssetViewModel data)
+        {
+            var result = new AccountBook()
+            {
+               
+                Amounttt = data.Money.Value,
+                Categoryyy = (int)data.Categories,
+                Dateee = data.CreatedDate.Value,
+                Remarkkk = data.Remark
+               
+            };
+            Add(result);
+        }
+        public void Add(AccountBook data)
+        {
+            data.Id = Guid.NewGuid();
+            _assetRep.Create(data);
+        }
+        public void Save()
+        {
+            _unitOfWork.Save();
+        }
 
     }
 }
