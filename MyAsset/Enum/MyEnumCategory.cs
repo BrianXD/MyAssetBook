@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
+
 namespace MyAsset.Enum
 {
     public enum MyEnumCategory
