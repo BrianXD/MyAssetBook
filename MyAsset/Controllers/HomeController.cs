@@ -8,7 +8,7 @@ using MyAsset.Models.Services;
 using MvcPaging;  //Web.Config 已經有加上了<add namespace="MvcPaging" />，不知為何還要using? 
 using MyAsset.Repositories;
 using MyAsset.Models.ViewModels;
-
+using MyAsset.Enum;
 
 namespace MyAsset.Controllers
 {

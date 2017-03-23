@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyAsset.Filters;
+using MyAsset.Enum;
 namespace MyAsset.Models.ViewModels
 {
     public class AssetViewModel
@@ -51,11 +52,5 @@ namespace MyAsset.Models.ViewModels
      
     }
 
-    public enum MyEnumCategory
-    {
-        選擇一個類別 = 2,
-        支出 = 0,
-        收入 = 1,
-      
-    }
+ 
 }
