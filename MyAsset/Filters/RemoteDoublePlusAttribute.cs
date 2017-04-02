@@ -43,11 +43,11 @@ namespace MyAsset.Filters
                     var propValue = prop.GetValue(validationContext.ObjectInstance, null);
                     propValues.Add(propValue);
                 }
-                //如果沒給AdditionalFields，把null加到list裡,63行會錯(browser關掉javascript)
-                //else
-                //{
-                //    propValues.Add(null);
-                //}
+               // 如果沒給AdditionalFields，把null加到list裡,63行會錯(browser關掉javascript)
+                else
+                {
+                    propValues.Add(null);
+                }
             }
 
             var controllerType = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(d => d.Name.ToLower() == (this._controller + "Controller").ToLower());

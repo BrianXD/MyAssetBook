@@ -8,7 +8,7 @@ namespace MyAsset.Controllers
 {
     public class ValidController : Controller
     {
-        public ActionResult ValidDate(DateTime? createdDate)
+        public ActionResult ValidDate(DateTime? createdDate, object value)
         {
             bool isValidate = (createdDate <= DateTime.Now);
             return Json(isValidate, JsonRequestBehavior.AllowGet);

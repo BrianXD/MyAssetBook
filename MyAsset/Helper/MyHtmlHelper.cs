@@ -19,9 +19,8 @@ namespace MyAsset.Helper
         {
 
             string colorCode = category == "支出" ? "#880015" : "#104D67";
-            string tag = $"<span style='color:{colorCode}'>{category}</span>";
-            MvcHtmlString m = new MvcHtmlString(tag);
-            return m;
+            string tag = $"<span style='color:{colorCode}'>{category}</span>";          
+            return new MvcHtmlString(tag); ;
         }
         public static string MyShowControllerAndActionName(this HtmlHelper helper)
         {

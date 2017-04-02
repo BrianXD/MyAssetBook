@@ -27,16 +27,9 @@ namespace MyAsset.Controllers
 
         // GET: Home
         public ActionResult Index(int? page = 1)
-        {            
+        {
             ViewBag.Title = "記帳本首頁";
-            
-            //EnumDropDownListFor：預設選取「選擇一個類別」選項 (value = 2)
-            //#但因此要回傳model...
-            //#而且實質型別要改變為Nullable<T>，否則VIEW欄位會顯示實質型別預設值
-            //#可能有更好的做法         
-            AssetViewModel myModel = new AssetViewModel();
-            myModel.Categories = MyEnumCategory.選擇一個類別;
-            return View(myModel);
+            return View();
         }
         [HttpPost]
         public ActionResult Index(AssetViewModel data)
@@ -44,17 +37,28 @@ namespace MyAsset.Controllers
             if (ModelState.IsValid)
             {
                 _assetSvc.Add(data);
-                _assetSvc.Save();
+
+                try
+                {
+                    _assetSvc.Save();
+                }
+                catch
+                {
+                    //to do something, log or rediret to view/page
+
+
+                }
+
                 return View();
             }
             return View(data);
-                 
+
         }
-       
+
 
         [ChildActionOnly]
         public ActionResult AssetList(int? page)
-        {           
+        {
             var assetRecords = _assetSvc.Lookup();
             //使用MVCPaging套件
             //http://demo.taiga.nl/mvcpaging/

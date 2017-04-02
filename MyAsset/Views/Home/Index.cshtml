@@ -8,7 +8,8 @@
             <div class="form-group">
                     @Html.LabelFor(d => d.Categories, new { @class = "col-sm-2 control-labe" })           
                 <div class="col-sm-10">
-                    @Html.EnumDropDownListFor(d => d.Categories,  new { @class = "form-control" })
+                            
+                    @Html.EnumDropDownListFor(d => d.Categories,"請選擇類別",  new { @class = "form-control" })
                     @Html.ValidationMessageFor(d => d.Categories)
                 </div>
             </div>

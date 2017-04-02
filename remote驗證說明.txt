@@ -1,0 +1,1 @@
+和各位提醒一下如果你使用 RemoteDoublePlus 並且有設定 AdditionalFields 請注意這因為是用 javascript 去抓頁面的值，所以 如果你設定 AdditionalFields="Id" 那該頁面一定要有一個 名稱為 Id 的 Input 還有這是有分大小寫的，錯了都會找不到唷

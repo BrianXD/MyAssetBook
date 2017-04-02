@@ -39,9 +39,9 @@ namespace MyAsset.Models.Services
             var result = new AccountBook()
             {
                
-                Amounttt = data.Money.Value,
+                Amounttt = data.Money,
                 Categoryyy = (int)data.Categories,
-                Dateee = data.CreatedDate.Value,
+                Dateee = data.CreatedDate,
                 Remarkkk = data.Remark
                
             };

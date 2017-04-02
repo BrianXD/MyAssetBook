@@ -14,10 +14,10 @@ namespace MyAsset
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             //for 分頁Route
-            //當url為: /Home/Index/1 (數字) 時才會套用
+            //當url為: /Home/Index/paging/1 (數字) 時才會套用
             routes.MapRoute(
                name: "Paging",
-               url: "{controller}/{action}/{page}",
+               url: "{controller}/{action}/paging/{page}",
                defaults: new
                {
                    controller = "Home",
