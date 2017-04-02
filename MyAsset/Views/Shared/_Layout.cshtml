@@ -31,9 +31,12 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                            <li>@Html.ActionLink("功能1(建構中)", "Unknown1", "Home")</li>
-                            <li>@Html.ActionLink("功能2(建構中)", "Unknown2", "Home")</li>
+                            @*<li>@Html.ActionLink("首頁", "Index", "Home")</li>*@
+                            @*<li>@Html.ActionLink("管理者", "Edit", "Home", new { area = "Admin" }, null)</li>*@
+
+                            <li><a href="@Url.Action("Index", "Home",new { area = "" })">首頁</a></li>
+                            <li><a href="@Url.Action("Edit", "Home", new { area = "Admin" })"><i class="fa fa-users"></i>管理者</a></li>
+                         
                         </ul>
 
                     </div>

@@ -24,6 +24,7 @@ namespace MyAsset
                    action = "Index",
                    page = UrlParameter.Optional
                },  //for 分頁
+               namespaces: new[] { "MyAsset.Controllers" },
                constraints: new { controller = "Home", action = "index", page = @"(\d*)" }
            );
 
@@ -31,7 +32,8 @@ namespace MyAsset
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }  //id 改為page，for 分頁
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },  //id 改為page，for 分頁
+                namespaces: new[] { "MyAsset.Controllers" } 
             );
         }
     }
