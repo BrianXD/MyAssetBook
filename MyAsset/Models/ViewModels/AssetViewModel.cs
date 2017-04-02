@@ -43,6 +43,7 @@ namespace MyAsset.Models.ViewModels
         [DisplayFormat(DataFormatString = "{0:#,###}")]       
         [Required]
         [Range(1, int.MaxValue)]
+        [UIHint("IntSPINNER")]
         public int Money { get; set; }
 
         [Display(Name = "備註")]        

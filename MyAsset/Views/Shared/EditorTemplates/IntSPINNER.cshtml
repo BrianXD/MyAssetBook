@@ -1,0 +1,14 @@
+﻿
+@model int?
+@{
+
+    //c#6.0語法，比上面語法漂亮
+    var value = Model?.ToString() ?? "";
+}
+@*//給空字串表示沿用套用的name*@
+@*  _會轉成-  *@
+@Html.TextBox("", value, new
+{
+    @class = "form-control",
+    data_spinner = "y"
+})

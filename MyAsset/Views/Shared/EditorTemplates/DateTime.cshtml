@@ -1,0 +1,19 @@
+﻿@model DateTime?
+@{
+
+
+    //三元運算字寫法。如果日期為NULL，則回傳空字串，否則格式化
+    var value = Model.HasValue
+    ? Model.Value.ToString("yyyy/MM/dd")
+    : "";
+    
+    //c#6.0語法，比上面語法漂亮
+    //var value = Model?.ToString("yyyy-MM-dd HH:mm") ?? "";
+}
+@*//給空字串表示沿用套用的name*@
+@*  _會轉成-  *@
+@Html.TextBox("", value, new
+{
+    @class = "form-control",
+    data_datepicker = "y"
+})
