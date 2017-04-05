@@ -45,8 +45,6 @@ namespace MyAsset.Controllers
                 catch
                 {
                     //to do something, log or rediret to view/page
-
-
                 }
 
                 return View();

@@ -214,6 +214,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\AuthLinkHelper.cs" />
     <Compile Include="Helper\MyHtmlHelper.cs" />
     <Compile Include="Models\AccountBook.cs" />
     <Compile Include="Models\AccountModel.cs" />
@@ -232,11 +233,12 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\Home\AssetList.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\IntSPINNER.cshtml" />
     <Content Include="Views\Auth\LogIn.cshtml" />
+    <Content Include="Views\Home\AssetPost.cshtml" />
+    <Content Include="Views\Home\AssetList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

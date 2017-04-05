@@ -17,7 +17,21 @@ namespace MyAsset.Models.Services
             _unitOfWork = unitOfWork;
             _assetRep = new Repository<AccountBook>(unitOfWork);
         }    
-       
+        public AssetViewModel GetSingle(Guid guid)
+        {
+            var assetItem = _assetRep.GetSingle(d => d.Id == guid);
+            var assetViewModel =
+                new AssetViewModel()
+                {
+                    AssetGUID = assetItem.Id,
+                    Categories = (Enum.MyEnumCategory) assetItem.Categoryyy,
+                    CreatedDate = assetItem.Dateee,
+                    Money = assetItem.Amounttt,
+                    Remark = assetItem.Remarkkk
+                  };
+            return assetViewModel;
+        }
+
         public IQueryable<AssetViewModel> Lookup()
         {
 
@@ -51,6 +65,14 @@ namespace MyAsset.Models.Services
         {
             data.Id = Guid.NewGuid();
             _assetRep.Create(data);
+        }
+        public void Edit(AssetViewModel data, Guid id)
+        {
+            AccountBook oldData = _assetRep.GetSingle(d => d.Id == id);           
+            oldData.Categoryyy = (int)data.Categories;
+            oldData.Amounttt = data.Money;
+            oldData.Dateee = data.CreatedDate;
+            oldData.Remarkkk = data.Remark;
         }
         public void Save()
         {

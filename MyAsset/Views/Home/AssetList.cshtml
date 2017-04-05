@@ -46,6 +46,10 @@
                 <th class="title-remark">
                     @Html.DisplayNameFor(d => d.FirstOrDefault().Remark)
                 </th>
+
+                <th class="title-remark">
+                    管理者功能
+                </th>
             </tr>
             @foreach (var item in Model)
             {
@@ -56,6 +60,9 @@
                     <td>@Html.DisplayFor(d => item.CreatedDate)</td>                
                     <td class="bg-success text-right">@Html.DisplayFor(d => item.Money)</td>
                     <td title="@item.Remark" class="remark">@(item.Remark.Length > 80 ? item.Remark.Substring(0, 79) + "..." : item.Remark)</td>
+                    <td>@Html.ActionLinkAuthorized("修改","Edit","Home", new { Area = "Admin", id = @item.AssetGUID }, null, "skilltree")</td>
+                    
+
                 </tr>
             }
 
