@@ -1,0 +1,21 @@
+﻿@model MyAsset.Models.ViewModels.LogInModel
+@{
+    ViewBag.Title = "Log In";
+}
+
+<h2>登入</h2>
+<div class="alert alert-danger">
+    預設帳號：<code>a@b.com</code>密碼：<code>1234</code>
+</div>
+@Html.ValidationSummary(true)
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <p>
+        <button type="submit">登入</button>
+    </p>
+    <p>
+        <a href="@Url.Action("LogOut", "Auth")">登出</a>
+    </p>
+}

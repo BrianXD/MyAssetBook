@@ -1,10 +1,16 @@
 ﻿@model MyAsset.Models.ViewModels.AssetViewModel
 @using MyAsset.Helper
+
+<div class="alert alert-danger">
+    @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Hello @User.Identity.Name
+</div>
+
 <p>@Html.Raw(Html.MyShowControllerAndActionName())</p>
 @using (Html.BeginForm())
 {
     <div class="well">
         <form class="form-horizontal">
+           
             <div class="form-group">
                     @Html.LabelFor(d => d.Categories, new { @class = "col-sm-2 control-labe" })           
                 <div class="col-sm-10">
