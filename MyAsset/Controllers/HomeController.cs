@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
+﻿using MvcPaging;  //Web.Config 已經有加上了<add namespace="MvcPaging" />，不知為何還要using? 
 using MyAsset.Models.Services;
-using MvcPaging;  //Web.Config 已經有加上了<add namespace="MvcPaging" />，不知為何還要using? 
-using MyAsset.Repositories;
 using MyAsset.Models.ViewModels;
-using MyAsset.Enum;
+using MyAsset.Repositories;
+using System.Web.Mvc;
 
 namespace MyAsset.Controllers
 {
+
+
     public class HomeController : Controller
     {
         private readonly AssetService _assetSvc;
@@ -24,10 +20,19 @@ namespace MyAsset.Controllers
             _assetSvc = new AssetService(unitOfWork);
 
         }
-
-        // GET: Home
-        public ActionResult Index(int? page = 1)
+        // Get: /SkillTree/2016/12
+        [Route(@"SkillTree/{year:int}/{month:int:min(1):max(12)}")]
+        public ActionResult Index(int? year, int? month)
         {
+            ViewBag.MyValueTest = year.ToString() + " / " + month.ToString();
+            ViewBag.Title = "記帳本首頁";
+            return View();
+        }
+
+        // Get: /SkillTree/
+        public ActionResult Index()
+        {
+
             ViewBag.Title = "記帳本首頁";
             return View();
         }
