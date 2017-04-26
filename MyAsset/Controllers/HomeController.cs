@@ -24,7 +24,6 @@ namespace MyAsset.Controllers
         [Route(@"SkillTree/{year:int}/{month:int:min(1):max(12)}")]
         public ActionResult Index(int? year, int? month)
         {
-            ViewBag.MyValueTest = year.ToString() + " / " + month.ToString();
             ViewBag.Title = "記帳本首頁";
             return View();
         }
@@ -60,9 +59,15 @@ namespace MyAsset.Controllers
 
 
         [ChildActionOnly]
-        public ActionResult AssetList(int? page)
+        public ActionResult AssetList(int? year, int? month, int? page)
         {
             var assetRecords = _assetSvc.Lookup();
+            if (year.HasValue && month.HasValue)
+            {
+
+                assetRecords = _assetSvc.LookupByYearMonth(year.Value, month.Value);
+            }
+
             //使用MVCPaging套件
             //http://demo.taiga.nl/mvcpaging/
             //另一套分頁套件:PagedList，和MVCPaging用法類似
